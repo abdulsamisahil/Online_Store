@@ -31,7 +31,7 @@ public class Controller {
     // Sign in button clicked
     public void setSignInButtonClicked()
     {
-        
+
     }
     // Product List button clicked
     public void productListButtonClicked()
