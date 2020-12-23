@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fill="#3d376e" layoutX="138.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User Register">
+         <font>
+            <Font size="44.0" />
+         </font>
+      </Text>
+      <Label layoutX="130.0" layoutY="150.0" prefHeight="25.0" prefWidth="65.0" text="First Name" />
+      <Label layoutX="130.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" text="Last Name" />
+      <Label layoutX="130.0" layoutY="230.0" prefHeight="25.0" prefWidth="65.0" text="Email" />
+      <Label layoutX="330.0" layoutY="270.0" prefHeight="25.0" prefWidth="65.0" text="Address" />
+      <Label layoutX="330.0" layoutY="150.0" prefHeight="25.0" prefWidth="37.0" text="City" />
+      <Label layoutX="330.0" layoutY="190.0" prefHeight="25.0" prefWidth="49.0" text="Country" />
+      <Label layoutX="330.0" layoutY="230.0" prefHeight="25.0" prefWidth="65.0" text="Phone no" />
+      <TextField fx:id="usernameTxf" layoutX="195.0" layoutY="270.0" prefHeight="25.0" prefWidth="117.0" promptText="username" />
+      <TextField fx:id="firstnameTxf" layoutX="195.0" layoutY="150.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
+      <PasswordField fx:id="passwordTxf" layoutX="195.0" layoutY="310.0" prefHeight="25.0" prefWidth="117.0" promptText="password" />
+      <TextField fx:id="lastnameTxf" layoutX="195.0" layoutY="190.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
+      <TextField fx:id="emailTxf" layoutX="195.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
+      <TextField fx:id="cityTxf" layoutX="388.0" layoutY="150.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
+      <TextField fx:id="countryTxf" layoutX="388.0" layoutY="190.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
+      <TextField fx:id="phoneTxf" layoutX="388.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
+      <TextField fx:id="addressTxf" layoutX="388.0" layoutY="270.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
+      <Label layoutX="130.0" layoutY="270.0" prefHeight="25.0" prefWidth="65.0" text="Username" />
+      <Label layoutX="130.0" layoutY="310.0" prefHeight="25.0" prefWidth="65.0" text="Password" />
+      <RadioButton layoutX="330.0" layoutY="310.0" mnemonicParsing="false" text="Customer" />
+      <RadioButton layoutX="430.0" layoutY="310.0" mnemonicParsing="false" text="Admin" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="NONE" />
+   </cursor>
+</AnchorPane>
