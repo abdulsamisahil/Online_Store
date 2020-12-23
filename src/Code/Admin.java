@@ -1,6 +1,6 @@
-package sample;
+package Code;
 
-public class Customer extends User
+public class Admin extends User
 {
     private String firstName, lastName, email, phone, username, password, address, city, country;
     @Override

@@ -1,4 +1,4 @@
-package sample;
+package Code;
 /**
  * @author Abdul Sami Sahil
  * Online Store Application

@@ -1,4 +1,4 @@
-package sample;
+package Code;
 
 public abstract class User
 {
