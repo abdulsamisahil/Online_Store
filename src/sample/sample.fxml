@@ -14,12 +14,12 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="signInButton" layoutX="166.0" layoutY="176.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Sign In">
+      <Button fx:id="signInButton" layoutX="166.0" layoutY="176.0" mnemonicParsing="false" onAction="#signInButtonClicked" prefHeight="50.0" prefWidth="270.0" text="Sign In">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="productListButton" layoutX="166.0" layoutY="250.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" text="Product List">
+      <Button fx:id="productListButton" layoutX="166.0" layoutY="250.0" mnemonicParsing="false" onAction="#productListButtonClicked" prefHeight="50.0" prefWidth="270.0" text="Product List">
          <font>
             <Font size="27.0" />
          </font>
@@ -32,8 +32,8 @@
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
                   <Stop color="#022f49" />
-                  <Stop color="#022f49" offset="0.7474489795918369" />
-                  <Stop color="WHITE" offset="1.0" />
+                  <Stop color="#b10000" offset="0.8306792742607251" />
+                  <Stop color="#8c0404" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>

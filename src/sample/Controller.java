@@ -21,7 +21,7 @@ import java.io.IOException;
 
 public class Controller {
     @FXML
-    Button newUserButton, signInButton, productListButton;
+    Button newUserButton, signInButton, productListButton, backButton;
     //New User Button Clicked
     public void newUserButtonClicked() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("newUser.fxml"));
@@ -29,13 +29,21 @@ public class Controller {
         window.setScene(new Scene(root, 601, 400));
     }
     // Sign in button clicked
-    public void setSignInButtonClicked()
-    {
-
+    public void signInButtonClicked() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("signIn.fxml"));
+        Stage window = (Stage) signInButton.getScene().getWindow();
+        window.setScene(new Scene(root, 601, 400));
     }
     // Product List button clicked
-    public void productListButtonClicked()
-    {
-
+    public void productListButtonClicked() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("productList.fxml"));
+        Stage window = (Stage) productListButton.getScene().getWindow();
+        window.setScene(new Scene(root, 601, 400));
+    }
+    //Back to home page
+    public void backButtonClicked() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Stage window = (Stage) backButton.getScene().getWindow();
+        window.setScene(new Scene(root, 601, 343));
     }
 }
