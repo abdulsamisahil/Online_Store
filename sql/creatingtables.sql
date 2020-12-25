@@ -4,7 +4,7 @@ create database online_store;
 /**Tables**/
 create table suppliers 
 (
-	SupplierId INT IDENTITY, 
+	SupplierId INT, 
 	CompanyName varchar (30) Not null, 
 	phone varchar (10) Not Null, 
 	Address varchar (100) Not null, 
@@ -14,7 +14,7 @@ create table suppliers
 
 create table Product 
 (
-	ProductId int Identity,
+	ProductId int,
 	ProductName nvarchar(50),
 	SupplierId int, 
 	basePrice decimal(12,2), 
@@ -26,7 +26,7 @@ create table Product
 
 create table app_user  
 (
-	userId int Identity, 
+	userId int, 
 	Firstname nvarchar(40), 
 	Lastname nvarchar(40), 
 	Email	nvarchar(50), 
@@ -43,7 +43,7 @@ create table app_user
 
 create table tbl_Order 
 (
-	OrderId int Identity, 
+	OrderId int, 
 	OrderNumber nvarchar(10), 
 	userId int, 
 	OrderDate datetime, 
