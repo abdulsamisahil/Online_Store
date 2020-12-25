@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.Controller">
+   <children>
+      <Text layoutX="144.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adding product to the stock">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#710000" />
+                  <Stop color="#710000" offset="0.88265306122449" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <TextField fx:id="productidtxf" layoutX="150.0" layoutY="110.0" prefHeight="25.0" prefWidth="119.0" promptText="productid" />
+      <TextField fx:id="productnametxf" layoutX="150.0" layoutY="145.0" prefHeight="25.0" prefWidth="119.0" promptText="productname" />
+      <TextField fx:id="pricetxf" layoutX="150.0" layoutY="215.0" prefHeight="25.0" prefWidth="119.0" promptText="price" />
+      <TextField fx:id="supplieridtxf" layoutX="150.0" layoutY="180.0" prefHeight="25.0" prefWidth="119.0" promptText="supplierid" />
+      <TextField fx:id="quantitytxf" layoutX="150.0" layoutY="250.0" prefHeight="25.0" prefWidth="119.0" promptText="quantity" />
+      <Button fx:id="btnAddProduct" layoutX="321.0" layoutY="250.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
+      <Button fx:id="btnReset" layoutX="413.0" layoutY="250.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Reset" />
+      <Label fx:id="lblStatus" layoutX="330.0" layoutY="146.0" prefHeight="33.0" prefWidth="179.0" text="Status">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#710505" />
+                  <Stop color="#710505" offset="0.8469387755102044" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>

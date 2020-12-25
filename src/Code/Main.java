@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+
 /**
  * @author Abdul Sami Sahil
  * Online Store Application
@@ -25,7 +27,12 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 601, 343));
         primaryStage.show();
     }
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        //SQLConnection sql = new SQLConnection();
+        try {
+            launch(args);
+        }catch (Exception e ){
+
+        }
     }
 }

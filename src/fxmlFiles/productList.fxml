@@ -34,7 +34,7 @@
             <TableColumn prefWidth="64.6666259765625" text="Discount" />
         </columns>
       </TableView>
-      <Button fx:id="addProductButton" layoutX="446.0" layoutY="56.0" mnemonicParsing="false" text="Add product" />
+      <Button fx:id="addProductButton" layoutX="446.0" layoutY="56.0" mnemonicParsing="false" onAction="#addProductScene" text="Add product" />
       <Button fx:id="backButton" layoutX="446.0" layoutY="309.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="32.0" prefWidth="89.0" text="Back" />
    </children>
 </AnchorPane>
