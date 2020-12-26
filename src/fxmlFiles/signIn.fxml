@@ -32,37 +32,9 @@
       <PasswordField fx:id="passwordtxf" layoutX="225.0" layoutY="187.0" promptText="password" />
       <RadioButton fx:id="customerbutton" layoutX="225.0" layoutY="250.0" mnemonicParsing="false" text="Log in as a customer" />
       <RadioButton fx:id="adminbutton" layoutX="225.0" layoutY="275.0" mnemonicParsing="false" text="Log in as an admin" />
-      <Label fx:id="statuslbl" layoutX="225.0" layoutY="304.0" text="Username and password failure">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#990303" />
-                  <Stop color="#990303" offset="0.9311224489795916" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Label layoutX="225.0" layoutY="331.0" text="Wrong user type is selected">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#990303" />
-                  <Stop color="#990303" offset="0.9464285714285712" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
       <Label layoutX="225.0" layoutY="232.0" text="User Type:" />
-      <Button fx:id="SignInButton" layoutX="423.0" layoutY="187.0" mnemonicParsing="false" text="Sign In" />
-      <Label layoutX="225.0" layoutY="358.0" text="Login succeeded...">
+      <Button fx:id="SignInButton" layoutX="423.0" layoutY="187.0" mnemonicParsing="false" onAction="#signIn" text="Sign In" />
+      <Label fx:id="signStatusLbl" layoutX="125.0" layoutY="321.0" prefHeight="27.0" prefWidth="373.0">
          <font>
             <Font size="18.0" />
          </font>
