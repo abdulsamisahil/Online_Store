@@ -22,6 +22,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/sample.fxml"));
         primaryStage.setTitle("Online Store");
         primaryStage.setScene(new Scene(root, 601, 343));

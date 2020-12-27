@@ -1,18 +1,20 @@
 package Code;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
 /**
  * @author Abdul Sami Sahil
@@ -25,15 +27,15 @@ import java.sql.*;
  * This class handles the logic behind the app and switches between the different scenes.
  */
 
-public class Controller {
+public class Controller{
 
-    @FXML // Main Scene buttons that switches between scenes
-    Button newUserButton, signInButton, productListButton, backButton, addProductButton;
+    @FXML // All buttons that switches between scenes
+    Button newUserButton, signInButton, productListButton, backButton, addProductButton, addSBtn;
     // Adding new product components
     @FXML TextField productidtxf, productnametxf, supplieridtxf, pricetxf, quantitytxf;
 
     @FXML //Label when product adds
-    Label lblStatus;
+    Label lblStatus, welcomeLbl;
 
     //Creating new user admin/customer components
     @FXML Button btnCreateUser;
@@ -48,8 +50,18 @@ public class Controller {
     @FXML Label signStatusLbl;
 
 
-    public Controller() throws SQLException, ClassNotFoundException
-    {
+
+
+    //Adding products to tableview
+    @FXML
+    TableView<Product> productsview;
+    @FXML TableColumn<Product, Integer> colpid;
+    @FXML TableColumn<Product, String> colpname;
+    @FXML TableColumn<Product, Integer> colsid;
+    @FXML TableColumn<Product, Double> colprice;
+    @FXML TableColumn<Product, Integer> colstock;
+
+    public Controller() throws Exception {
 
     }
 
@@ -72,8 +84,15 @@ public class Controller {
         window.setScene(new Scene(root, 601, 400));
 
     }
-    public void productListWithAddBtn() throws IOException {
+    public void adminScene() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/productListWhenLogin.fxml"));
+        Stage window = (Stage) SignInButton.getScene().getWindow();
+        window.setScene(new Scene(root, 601, 400));
+
+    }
+    // Customer scene after log in succeeded
+    public void customerSceneAfterLogin() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/productListWhenCustomerLogin.fxml"));
         Stage window = (Stage) SignInButton.getScene().getWindow();
         window.setScene(new Scene(root, 601, 400));
 
@@ -88,6 +107,12 @@ public class Controller {
     public void addProductScene() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/addingProduct.fxml"));
         Stage window = (Stage) addProductButton.getScene().getWindow();
+        window.setScene(new Scene(root, 601, 400));
+    }
+    // Add Supplier button clicked
+    public void addSupplierButtonClicked() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/addSupplier.fxml"));
+        Stage window = (Stage) addSBtn.getScene().getWindow();
         window.setScene(new Scene(root, 601, 400));
     }
     //Adding product to the store
@@ -222,10 +247,10 @@ public class Controller {
         if (rs.next()){
             signStatusLbl.setText("Login succeeded");
             if (role.equals("Admin")){
-                productListWithAddBtn();
+                adminScene();
             }
             else if (role.equals("Customer")){
-                productListButtonClicked();
+                customerSceneAfterLogin();
             }
         }
         else {
@@ -236,5 +261,60 @@ public class Controller {
             customerbutton.setSelected(false);
         }
         connection.close();
+    }
+    public ObservableList<Product> fetchAllProducts() throws SQLException, ClassNotFoundException {
+        Connection connection = connection();
+        ObservableList<Product> list = FXCollections.observableArrayList();
+
+        String query = "Select * from online_store.dbo.Product";
+        PreparedStatement pst = connection.prepareStatement(query);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()){
+            list.add(new Product(Integer.parseInt(rs.getString("ProductId")), rs.getString("ProductName"),
+                    Integer.parseInt(rs.getString("SupplierId")),
+                    Double.parseDouble(rs.getString("basePrice")), Integer.parseInt(rs.getString("unitsInStock"))));
+        }
+
+        return list;
+    }
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colpid.setCellValueFactory(new PropertyValueFactory<Product, Integer>("ProductId"));
+        colpname.setCellValueFactory(new PropertyValueFactory<Product, String>("ProductName"));
+        colsid.setCellValueFactory(new PropertyValueFactory<Product, Integer>("SupplierId"));
+        colprice.setCellValueFactory(new PropertyValueFactory<Product, Double>("basePrice"));
+        colstock.setCellValueFactory(new PropertyValueFactory<Product, Integer>("unitsInStock"));
+
+        ObservableList<Product> productslist;
+        try {
+            productslist = fetchAllProducts();
+            productsview.setItems(productslist);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    //Adding new supplier components
+    @FXML TextField supplierid, supcompanyname, supphone, supaddress;
+    @FXML Button btnAddSupplier;
+    public void addSupplier() throws SQLException, ClassNotFoundException, InterruptedException {
+        Connection connection = connection();
+        String query = "insert into online_store.dbo.suppliers (supplierId, CompanyName, phone, Address) " +
+                "values (?, ?, ?, ?)";
+        if (connection != null){
+            PreparedStatement pst = connection.prepareStatement(query);
+            pst.setString(1,supplierid.getText() );
+            pst.setString(2, supcompanyname.getText());
+            pst.setString(3, supphone.getText());
+            pst.setString(4, supaddress.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "New Supplier Added Successfully");
+            supplierid.setText("");
+            supcompanyname.setText("");
+            supphone.setText("");
+            supaddress.setText("");
+            pst.close();
+        }
     }
 }

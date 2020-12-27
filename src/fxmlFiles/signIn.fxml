@@ -36,7 +36,7 @@
       <Button fx:id="SignInButton" layoutX="423.0" layoutY="187.0" mnemonicParsing="false" onAction="#signIn" text="Sign In" />
       <Label fx:id="signStatusLbl" layoutX="125.0" layoutY="321.0" prefHeight="27.0" prefWidth="373.0">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
