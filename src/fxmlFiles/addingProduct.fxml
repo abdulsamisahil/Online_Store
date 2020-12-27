@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.productController">
    <children>
       <Text layoutX="144.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adding product to the stock">
          <font>
@@ -31,7 +31,7 @@
       <TextField fx:id="supplieridtxf" layoutX="150.0" layoutY="180.0" prefHeight="25.0" prefWidth="119.0" promptText="supplierid" />
       <TextField fx:id="quantitytxf" layoutX="150.0" layoutY="250.0" prefHeight="25.0" prefWidth="119.0" promptText="quantity" />
       <Button fx:id="btnAddProduct" layoutX="321.0" layoutY="250.0" mnemonicParsing="false" onAction="#addProduct" text="Add Product" />
-      <Button fx:id="btnReset" layoutX="413.0" layoutY="250.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Reset" />
+      <Button fx:id="btnBack" layoutX="413.0" layoutY="250.0" mnemonicParsing="false" onAction="#backToAdminScene" prefHeight="25.0" prefWidth="83.0" text="Back" />
       <Label fx:id="lblStatus" layoutX="330.0" layoutY="146.0" prefHeight="33.0" prefWidth="179.0" text="Status">
          <font>
             <Font size="15.0" />

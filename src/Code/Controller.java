@@ -31,11 +31,9 @@ public class Controller{
 
     @FXML // All buttons that switches between scenes
     Button newUserButton, signInButton, productListButton, backButton, addProductButton, addSBtn;
-    // Adding new product components
-    @FXML TextField productidtxf, productnametxf, supplieridtxf, pricetxf, quantitytxf;
 
-    @FXML //Label when product adds
-    Label lblStatus, welcomeLbl;
+    @FXML
+    Label welcomeLbl;
 
     //Creating new user admin/customer components
     @FXML Button btnCreateUser;
@@ -103,51 +101,8 @@ public class Controller{
         Stage window = (Stage) backButton.getScene().getWindow();
         window.setScene(new Scene(root, 601, 343));
     }
-    // Add Product button clicked
-    public void addProductScene() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/addingProduct.fxml"));
-        Stage window = (Stage) addProductButton.getScene().getWindow();
-        window.setScene(new Scene(root, 601, 400));
-    }
-    // Add Supplier button clicked
-    public void addSupplierButtonClicked() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/addSupplier.fxml"));
-        Stage window = (Stage) addSBtn.getScene().getWindow();
-        window.setScene(new Scene(root, 601, 400));
-    }
-    //Adding product to the store
-    public void addProduct () throws SQLException, ClassNotFoundException {
-        Connection connection = connection();
-        if (connection != null)
-        {
-            System.out.println("Connected!");
-            String pid = productidtxf.getText();
-            String pname = productnametxf.getText();
-            String sid = supplieridtxf.getText();
-            String price = pricetxf.getText();
-            String quantity = quantitytxf.getText();
-            String query = "insert into online_store.dbo.Product(ProductId, ProductName," +
-                    "SupplierId, basePrice, unitsInStock) values(?,?,?,?,?)";
-            PreparedStatement stm = connection.prepareStatement(query);
-            //waiting for adding product scene!
-            stm.setString(1,pid );
-            stm.setString(2,pname );
-            stm.setString(3,sid);
-            stm.setString(4,price );
-            stm.setString(5,quantity);
-
-            stm.executeUpdate();
-            lblStatus.setText("Product added successfully");
-            productidtxf.setText("");
-            productnametxf.setText("");
-            supplieridtxf.setText("");
-            pricetxf.setText("");
-            quantitytxf.setText("");
-            stm.close();
-        }
-    }
     public void createUser() throws SQLException, ClassNotFoundException {
-        Connection connection = connection();
+        Connection connection = new sqlconnection().connection();
         if (connection != null)
         {
             System.out.println("Connected!");
@@ -208,24 +163,8 @@ public class Controller{
         }
 
     }
-    public Connection connection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String user = "onlinestore";
-        String password = "Inshallah123";
-
-        String dbURL = "jdbc:sqlserver://localhost";
-
-        Connection connection = DriverManager.getConnection(dbURL, user, password);
-        if (connection != null)
-        {
-            System.out.println("Connected!");
-            return connection;
-
-        }
-        return null;
-    }
     public void signIn() throws SQLException, ClassNotFoundException, IOException {
-        Connection connection = connection();
+        Connection connection = new sqlconnection().connection();
         String query = "Select * from online_store.dbo.app_user where Role = ? and username = ? and " +
                 "password = ?";
         PreparedStatement pst = connection.prepareStatement(query);
@@ -263,7 +202,7 @@ public class Controller{
         connection.close();
     }
     public ObservableList<Product> fetchAllProducts() throws SQLException, ClassNotFoundException {
-        Connection connection = connection();
+        Connection connection = new sqlconnection().connection();
         ObservableList<Product> list = FXCollections.observableArrayList();
 
         String query = "Select * from online_store.dbo.Product";
@@ -293,28 +232,6 @@ public class Controller{
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
-    }
-    //Adding new supplier components
-    @FXML TextField supplierid, supcompanyname, supphone, supaddress;
-    @FXML Button btnAddSupplier;
-    public void addSupplier() throws SQLException, ClassNotFoundException, InterruptedException {
-        Connection connection = connection();
-        String query = "insert into online_store.dbo.suppliers (supplierId, CompanyName, phone, Address) " +
-                "values (?, ?, ?, ?)";
-        if (connection != null){
-            PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1,supplierid.getText() );
-            pst.setString(2, supcompanyname.getText());
-            pst.setString(3, supphone.getText());
-            pst.setString(4, supaddress.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "New Supplier Added Successfully");
-            supplierid.setText("");
-            supcompanyname.setText("");
-            supphone.setText("");
-            supaddress.setText("");
-            pst.close();
         }
     }
 }
