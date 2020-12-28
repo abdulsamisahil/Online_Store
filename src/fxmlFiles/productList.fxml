@@ -25,15 +25,15 @@
             </LinearGradient>
          </fill>
       </Text>
-      <TableView fx:id="productsview" layoutX="38.0" layoutY="91.0" prefHeight="250.0" prefWidth="402.0">
+      <TableView fx:id="productsview" layoutX="38.0" layoutY="91.0" prefHeight="250.0" prefWidth="518.0">
         <columns>
-          <TableColumn fx:id="colpid" prefWidth="43.33333969116211" text="PID" />
-          <TableColumn fx:id="colpname" prefWidth="86.00000762939453" text="Name" />
-            <TableColumn fx:id="colsid" prefWidth="65.33334350585938" text="SID" />
-            <TableColumn fx:id="colprice" prefWidth="54.66667175292969" text="Price" />
-            <TableColumn fx:id="colstock" prefWidth="64.6666259765625" text="Stock" />
+          <TableColumn fx:id="colpid" prefWidth="71.33334732055664" text="PID" />
+          <TableColumn fx:id="colpname" prefWidth="237.33332061767578" text="Name" />
+            <TableColumn fx:id="colsid" prefWidth="67.3333740234375" text="SID" />
+            <TableColumn fx:id="colprice" prefWidth="69.3333740234375" text="Price" />
+            <TableColumn fx:id="colstock" prefWidth="69.33328247070312" text="Stock" />
         </columns>
       </TableView>
-      <Button fx:id="backButton" layoutX="446.0" layoutY="309.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="32.0" prefWidth="89.0" text="Back" />
+      <Button fx:id="backButton" layoutX="466.0" layoutY="55.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="32.0" prefWidth="89.0" text="Back" />
    </children>
 </AnchorPane>
