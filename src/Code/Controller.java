@@ -80,13 +80,11 @@ public class Controller{
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/productList.fxml"));
         Stage window = (Stage) productListButton.getScene().getWindow();
         window.setScene(new Scene(root, 601, 400));
-
     }
     public void adminScene() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../fxmlFiles/productListWhenLogin.fxml"));
         Stage window = (Stage) SignInButton.getScene().getWindow();
         window.setScene(new Scene(root, 601, 400));
-
     }
     // Customer scene after log in succeeded
     public void customerSceneAfterLogin() throws IOException {

@@ -1,82 +1,57 @@
 package Code;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 public class Product
 {
-    public int getPid() {
-        return pid.get();
+    private int productId, supplierId, unitsInStock;
+    private String productName;
+
+    public int getProductId() {
+        return productId;
     }
 
-    public SimpleIntegerProperty pidProperty() {
-        return pid;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-    public void setPid(int pid) {
-        this.pid.set(pid);
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public String getPname() {
-        return pname.get();
-    }
-
-    public SimpleStringProperty pnameProperty() {
-        return pname;
-    }
-
-    public void setPname(String pname) {
-        this.pname.set(pname);
-    }
-
-    public int getSid() {
-        return sid.get();
-    }
-
-    public SimpleIntegerProperty sidProperty() {
-        return sid;
-    }
-
-    public void setSid(int sid) {
-        this.sid.set(sid);
-    }
-
-    public double getPprice() {
-        return pprice.get();
-    }
-
-    public SimpleDoubleProperty ppriceProperty() {
-        return pprice;
-    }
-
-    public void setPprice(double pprice) {
-        this.pprice.set(pprice);
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
     public int getUnitsInStock() {
-        return unitsInStock.get();
-    }
-
-    public SimpleIntegerProperty unitsInStockProperty() {
         return unitsInStock;
     }
 
     public void setUnitsInStock(int unitsInStock) {
-        this.unitsInStock.set(unitsInStock);
+        this.unitsInStock = unitsInStock;
     }
 
-    private SimpleIntegerProperty pid;
-    private SimpleStringProperty pname;
-    private SimpleIntegerProperty sid;
-    private SimpleDoubleProperty pprice;
-    private SimpleIntegerProperty unitsInStock;
+    public String getProductName() {
+        return productName;
+    }
 
-    public Product(int id, String name, int spid, double price, int stock){
-        this.pid = new SimpleIntegerProperty(id);
-        this.pname = new SimpleStringProperty(name);
-        this.sid = new SimpleIntegerProperty(spid);
-        this.pprice = new SimpleDoubleProperty(price);
-        this.unitsInStock = new SimpleIntegerProperty(stock);
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(double basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    private double basePrice;
+
+    public Product(int productId, String productName, int supplierId, double basePrice, int unitsInStock) {
+        this.productId = productId;
+        this.supplierId = supplierId;
+        this.unitsInStock = unitsInStock;
+        this.productName = productName;
+        this.basePrice = basePrice;
     }
 }
