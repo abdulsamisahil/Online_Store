@@ -11,7 +11,7 @@ public class sqlconnection
     public Connection connection() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String user = "onlinestore";
-        String password = "Inshallah123";
+        String password = "project50";
 
         String dbURL = "jdbc:sqlserver://localhost";
 
@@ -21,6 +21,8 @@ public class sqlconnection
             System.out.println("Connected!");
             return connection;
 
+        } else {
+            System.out.println("Connection failed! ");
         }
         return null;
     }
