@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.supplierController">
    <children>
       <Text layoutX="189.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Suppliers">
@@ -25,10 +24,9 @@
             </LinearGradient>
          </fill>
       </Text>
-      <TextField fx:id="supplierid" layoutX="225.0" layoutY="130.0" promptText="Supplier ID" />
-      <TextField fx:id="supaddress" layoutX="225.0" layoutY="250.0" promptText="Address" />
-      <TextField fx:id="supphone" layoutX="225.0" layoutY="210.0" promptText="Phone no" />
-      <TextField fx:id="supcompanyname" layoutX="225.0" layoutY="170.0" promptText="Company name" />
+      <TextField fx:id="supaddress" layoutX="225.0" layoutY="208.0" promptText="Address" />
+      <TextField fx:id="supphone" layoutX="225.0" layoutY="174.0" promptText="Phone no" />
+      <TextField fx:id="supcompanyname" layoutX="225.0" layoutY="137.0" promptText="Supplier Name" />
       <Button fx:id="btnBack" layoutX="225.0" layoutY="294.0" mnemonicParsing="false" onAction="#backToAdminScene" text="Back" />
       <Button fx:id="btnAddSupplier" layoutX="336.0" layoutY="294.0" mnemonicParsing="false" onAction="#addSupplier" text="Add" />
    </children>

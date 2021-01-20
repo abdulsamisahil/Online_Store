@@ -1,4 +1,4 @@
-Use Application_3_onlinestore
+
 Create table Customer 
 ( 
 	Customer_Id bigint, 
@@ -9,6 +9,8 @@ Create table Customer
 	Country char (30),
 	City char (30), 
 	Street varchar(60),
+	Username varchar(60) NOT Null, 
+	Password varchar(60) NOT Null,
 
 	Primary key (Customer_Id)
 ); 
@@ -66,8 +68,10 @@ Create table Discount
 
 Create table Product_Discount 
 (
-	Product_Id bigint Primary Key, 
+	Product_Id bigint, 
 	Discount_Id int Foreign key references Discount (Discount_Id), 
 	Start_Date Date, 
 	End_Date Date, 
+
+	Primary key(Product_Id, Start_Date, End_Date)
 ); 

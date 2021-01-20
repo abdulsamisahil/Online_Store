@@ -32,10 +32,10 @@
       <Label layoutX="130.0" layoutY="150.0" prefHeight="25.0" prefWidth="65.0" text="First Name" />
       <Label layoutX="130.0" layoutY="190.0" prefHeight="25.0" prefWidth="65.0" text="Last Name" />
       <Label layoutX="130.0" layoutY="230.0" prefHeight="25.0" prefWidth="65.0" text="Email" />
-      <Label layoutX="330.0" layoutY="270.0" prefHeight="25.0" prefWidth="65.0" text="Address" />
+      <Label layoutX="330.0" layoutY="230.0" prefHeight="25.0" prefWidth="65.0" text="Street" />
       <Label layoutX="330.0" layoutY="150.0" prefHeight="25.0" prefWidth="37.0" text="City" />
       <Label layoutX="330.0" layoutY="190.0" prefHeight="25.0" prefWidth="49.0" text="Country" />
-      <Label layoutX="330.0" layoutY="230.0" prefHeight="25.0" prefWidth="65.0" text="Phone no" />
+      <Label layoutX="330.0" layoutY="270.0" prefHeight="25.0" prefWidth="65.0" text="Phone no" />
       <TextField fx:id="usernameTxf" layoutX="195.0" layoutY="270.0" prefHeight="25.0" prefWidth="117.0" promptText="username" />
       <TextField fx:id="firstnameTxf" layoutX="195.0" layoutY="150.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
       <PasswordField fx:id="passwordTxf" layoutX="195.0" layoutY="310.0" prefHeight="25.0" prefWidth="117.0" promptText="password" />
@@ -43,17 +43,17 @@
       <TextField fx:id="emailTxf" layoutX="195.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
       <TextField fx:id="cityTxf" layoutX="388.0" layoutY="150.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
       <TextField fx:id="countryTxf" layoutX="388.0" layoutY="190.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
-      <TextField fx:id="phoneTxf" layoutX="388.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
-      <TextField fx:id="addressTxf" layoutX="388.0" layoutY="270.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
+      <TextField fx:id="phoneTxf" layoutX="388.0" layoutY="270.0" prefHeight="25.0" prefWidth="117.0" promptText="Required" />
+      <TextField fx:id="streetTxf" layoutX="388.0" layoutY="230.0" prefHeight="25.0" prefWidth="117.0" promptText="Optional" />
       <Label layoutX="130.0" layoutY="270.0" prefHeight="25.0" prefWidth="65.0" text="Username" />
       <Label layoutX="130.0" layoutY="310.0" prefHeight="25.0" prefWidth="65.0" text="Password" />
-      <RadioButton fx:id="customer" layoutX="195.0" layoutY="363.0" mnemonicParsing="false" text="Customer">
+      <RadioButton fx:id="customer" layoutX="130.0" layoutY="363.0" mnemonicParsing="false" text="Customer">
          <toggleGroup>
             <ToggleGroup fx:id="usertype" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="admin" layoutX="330.0" layoutY="363.0" mnemonicParsing="false" text="Admin" toggleGroup="$usertype" />
+      <RadioButton fx:id="admin" layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="Admin" toggleGroup="$usertype" />
       <Button fx:id="backButton" layoutX="130.0" layoutY="112.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="30.0" prefWidth="80.0" text="Back" />
-      <Button fx:id="create" layoutX="447.0" layoutY="350.0" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="65.0" text="Create" />
+      <Button fx:id="create" layoutX="439.0" layoutY="363.0" mnemonicParsing="false" onAction="#createUser" prefHeight="30.0" prefWidth="65.0" text="Create" />
       <TextField fx:id="useridTxf" layoutX="388.0" layoutY="310.0" prefHeight="26.0" prefWidth="117.0" promptText="USER ID NO" />
    </children>
    <cursor>

@@ -38,7 +38,7 @@ public class Controller{
     //Creating new user admin/customer components
     @FXML Button btnCreateUser;
     @FXML TextField firstnameTxf, lastnameTxf, emailTxf, usernameTxf, passwordTxf, cityTxf, countryTxf,
-    phoneTxf, addressTxf, useridTxf;
+    phoneTxf, streetTxf, useridTxf;
     @FXML RadioButton admin, customer;
 
     //Sign in scene components
@@ -106,11 +106,11 @@ public class Controller{
             System.out.println("Connected!");
            if (admin.isSelected() || customer.isSelected()){
 
-               String userid = useridTxf.getText();
+               String customerId = useridTxf.getText();
                String firstname = firstnameTxf.getText();
                String lastname = lastnameTxf.getText();
                String email = emailTxf.getText();
-               String address = addressTxf.getText();
+               String street = streetTxf.getText();
                String city = cityTxf.getText();
                String country = countryTxf.getText();
                String phone = phoneTxf.getText();
@@ -123,29 +123,29 @@ public class Controller{
                {
                    userType = "Customer";
                }
-               String query = "insert into online_store.dbo.app_user(userId, Firstname," +
-                       "Lastname, Email, Address, City, Country, Phone, Role, username, password) " +
+               String query = "insert into Application_3_Onlinestore.dbo.Customer(Customer_Id, Firstname," +
+                       "Lastname, Email, Phone, Country, City, Street, Username, Password, Role) " +
                        "values(?,?,?,?,?,?,?,?,?,?,?)";
                PreparedStatement stm = connection.prepareStatement(query);
                //waiting for adding product scene!
-               stm.setString(1,userid );
+               stm.setString(1,customerId );
                stm.setString(2,firstname );
                stm.setString(3, lastname);
                stm.setString(4, email );
-               stm.setString(5,address);
-               stm.setString(6,city);
-               stm.setString(7,country);
-               stm.setString(8,phone);
-               stm.setString(9,userType);
-               stm.setString(10,username);
-               stm.setString(11, password);
+               stm.setString(5,phone);
+               stm.setString(6,country);
+               stm.setString(7,city);
+               stm.setString(8,street);
+               stm.setString(9,username);
+               stm.setString(10,password);
+               stm.setString(11, userType);
 
                stm.executeUpdate();
                JOptionPane.showMessageDialog(null, "New user added successfully");
                firstnameTxf.setText("");
                lastnameTxf.setText("");
                emailTxf.setText("");
-               addressTxf.setText("");
+               streetTxf.setText("");
                cityTxf.setText("");
                countryTxf.setText("");
                phoneTxf.setText("");
@@ -163,7 +163,7 @@ public class Controller{
     }
     public void signIn() throws SQLException, ClassNotFoundException, IOException {
         Connection connection = new sqlconnection().connection();
-        String query = "Select * from online_store.dbo.app_user where Role = ? and username = ? and " +
+        String query = "Select * from Application_3_Onlinestore.dbo.Customer where Role = ? and username = ? and " +
                 "password = ?";
         PreparedStatement pst = connection.prepareStatement(query);
         String username = usernametxf.getText();

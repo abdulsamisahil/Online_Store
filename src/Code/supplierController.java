@@ -17,23 +17,23 @@ public class supplierController
 {
     //Adding new supplier components
     @FXML
-    TextField supplierid, supcompanyname, supphone, supaddress;
+    TextField supcompanyname, supphone, supaddress;
     @FXML
     Button btnAddSupplier, btnBack;
     public void addSupplier() throws SQLException, ClassNotFoundException, InterruptedException {
         Connection connection = new sqlconnection().connection();
-        String query = "insert into online_store.dbo.suppliers (supplierId, CompanyName, phone, Address) " +
-                "values (?, ?, ?, ?)";
+        String query = "insert into Application_3_Onlinestore.dbo.Supplier (Name, Phone, Address) " +
+                "values (?, ?, ?)";
         if (connection != null){
             PreparedStatement pst = connection.prepareStatement(query);
-            pst.setString(1,supplierid.getText() );
-            pst.setString(2, supcompanyname.getText());
-            pst.setString(3, supphone.getText());
-            pst.setString(4, supaddress.getText());
+            pst.setString(1, supcompanyname.getText() );
+          //  pst.setString(2, supcompanyname.getText());
+            pst.setString(2, supphone.getText());
+            pst.setString(3, supaddress.getText());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "New Supplier Added Successfully");
-            supplierid.setText("");
             supcompanyname.setText("");
+           // supcompanyname.setText("");
             supphone.setText("");
             supaddress.setText("");
             pst.close();

@@ -57,16 +57,16 @@ public class productController
             System.out.println("Connected!");
             String pid = productidtxf.getText();
             String pname = productnametxf.getText();
-            String sid = supplieridtxf.getText();
+            String sname = supplieridtxf.getText();
             String price = pricetxf.getText();
             String quantity = quantitytxf.getText();
-            String query = "insert into online_store.dbo.Product(ProductId, ProductName," +
-                    "SupplierId, basePrice, unitsInStock) values(?,?,?,?,?)";
+            String query = "insert into Application_3_Onlinestore.dbo.Products(Product_Id, Name," +
+                    "Supplier, Base_Price, Quantity) values(?,?,?,?,?)";
             PreparedStatement stm = connection.prepareStatement(query);
             //waiting for adding product scene!
             stm.setString(1,pid );
             stm.setString(2,pname );
-            stm.setString(3,sid);
+            stm.setString(3,sname);
             stm.setString(4,price );
             stm.setString(5,quantity);
 

@@ -27,6 +27,7 @@ public class Main extends Application {
         primaryStage.setTitle("Online Store");
         primaryStage.setScene(new Scene(root, 601, 343));
         primaryStage.show();
+
     }
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         //SQLConnection sql = new SQLConnection();
