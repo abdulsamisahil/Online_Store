@@ -37,5 +37,6 @@
         <Button fx:id="addProductButton" layoutX="446.0" layoutY="91.0" mnemonicParsing="false" onAction="#addProductScene" prefHeight="25.0" prefWidth="89.0" text="Add Product" />
         <Button fx:id="logoutBtn" layoutX="446.0" layoutY="309.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="32.0" prefWidth="89.0" text="Log out" />
       <Button fx:id="addSBtn" layoutX="446.0" layoutY="125.0" mnemonicParsing="false" onAction="#addSupplierButtonClicked" prefHeight="25.0" prefWidth="89.0" text="Add Supplier" />
+      <Button fx:id="deleteProductBtn" layoutX="446.0" layoutY="160.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="89.0" text="Delete" />
     </children>
 </AnchorPane>

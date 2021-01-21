@@ -9,10 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class productController
 {
@@ -78,6 +77,18 @@ public class productController
             pricetxf.setText("");
             quantitytxf.setText("");
             stm.close();
+        }
+    }
+
+    public void deleteProduct() throws SQLException, ClassNotFoundException {
+        Connection connection = new sqlconnection().connection();
+        String sql = "Delete From Application_3_Onlinestore.dbo.Products where name = ?";
+
+        if (connection != null){
+            Statement stm = connection.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+        }else {
+            JOptionPane.showMessageDialog(null, "Connection failed");
         }
     }
 }
