@@ -8,7 +8,7 @@ public class sqlconnection
 {
     private Connection connection;
 
-    public Connection connection() throws ClassNotFoundException, SQLException {
+    public Connection connect() throws ClassNotFoundException, SQLException {
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String user = "onlinestore";
         String password = "project50";

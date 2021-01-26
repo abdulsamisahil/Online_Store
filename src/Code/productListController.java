@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class productListController implements Initializable
@@ -30,13 +32,16 @@ public class productListController implements Initializable
     private TableColumn<Product, String> colpname;
 
     @FXML
-    private TableColumn<Product, Integer> colsid;
+    private TableColumn<Product, String> colsname;
 
     @FXML
-    private TableColumn<Product, Double> colprice;
+    private TableColumn<Product, Double> colbase_price;
 
     @FXML
-    private TableColumn<Product, Integer> colstock;
+    private TableColumn<Product, Integer> colquantity;
+
+    @FXML
+    private TableColumn<Product, Integer> colquantitySold;
 
     @FXML
     private Button backButton, productListButton;
@@ -48,22 +53,38 @@ public class productListController implements Initializable
         window.setScene(new Scene(root, 601, 343));
     }
 
-    ObservableList<Product> list = FXCollections.observableArrayList(
-      new Product(1, "Diningtable", 102, 10.15, 12),
-            new Product(2, "iPhone", 104, 200.15, 24),
-            new Product(3, "Mac", 110, 28.00, 14),
-            new Product(4, "hp", 102, 300.24, 24),
-            new Product(5, "watch", 104, 23.4, 48)
-    );
+    ObservableList<Product> data;
+    public void fetchAllProducts(){
+        Connection connection;
+        data = FXCollections.observableArrayList();
+        try {
+            connection = new sqlconnection().connect();
+            String sql = "Select * from Application_3_Onlinestore.dbo.Products";
+            ResultSet rs = connection.createStatement().executeQuery(sql);
 
+          /*  for (int i = 0; i < rs.getMetaData().getColumnCount(); i++){
+                final int j = i;
+
+            }*/
+
+            while (rs.next()){
+
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Error when fetching products from table product");
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        colpid.setCellValueFactory(new PropertyValueFactory<Product, Integer>("colpid"));
-        colpname.setCellValueFactory(new PropertyValueFactory<Product, String>("colpname"));
-        colsid.setCellValueFactory(new PropertyValueFactory<Product, Integer>("colsid"));
-        colprice.setCellValueFactory(new PropertyValueFactory<Product, Double>("colprice"));
-        colstock.setCellValueFactory(new PropertyValueFactory<Product, Integer>("colstock"));
+        colpid.setCellValueFactory(new PropertyValueFactory<Product, Integer>("Product_Id"));
+        colpname.setCellValueFactory(new PropertyValueFactory<Product, String>("Name"));
+        colsname.setCellValueFactory(new PropertyValueFactory<Product, String>("Supplier"));
+        colbase_price.setCellValueFactory(new PropertyValueFactory<Product, Double>("Base_Price"));
+        colquantity.setCellValueFactory(new PropertyValueFactory<Product, Integer>("Quantity"));
+        colquantitySold.setCellValueFactory(new PropertyValueFactory<Product, Integer>("QuantitySold"));
 
-        productsview.setItems(list);
+        productsview.setItems(data);
     }
 }

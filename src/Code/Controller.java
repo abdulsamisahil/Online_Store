@@ -100,7 +100,7 @@ public class Controller{
         window.setScene(new Scene(root, 601, 343));
     }
     public void createUser() throws SQLException, ClassNotFoundException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         if (connection != null)
         {
             System.out.println("Connected!");
@@ -162,7 +162,7 @@ public class Controller{
 
     }
     public void signIn() throws SQLException, ClassNotFoundException, IOException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         String query = "Select * from Application_3_Onlinestore.dbo.Customer where Role = ? and username = ? and " +
                 "password = ?";
         PreparedStatement pst = connection.prepareStatement(query);
@@ -200,16 +200,16 @@ public class Controller{
         connection.close();
     }
     public ObservableList<Product> fetchAllProducts() throws SQLException, ClassNotFoundException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         ObservableList<Product> list = FXCollections.observableArrayList();
 
-        String query = "Select * from online_store.dbo.Product";
-        PreparedStatement pst = connection.prepareStatement(query);
-        ResultSet rs = pst.executeQuery();
+        String query = "Select * from Application_3_Onlinestore.dbo.Products";
+
+        ResultSet rs = connection.createStatement().executeQuery(query);
+
         while (rs.next()){
-            list.add(new Product(Integer.parseInt(rs.getString("ProductId")), rs.getString("ProductName"),
-                    Integer.parseInt(rs.getString("SupplierId")),
-                    Double.parseDouble(rs.getString("basePrice")), Integer.parseInt(rs.getString("unitsInStock"))));
+           ObservableList<Product> row = FXCollections.observableArrayList();
+
         }
 
         return list;

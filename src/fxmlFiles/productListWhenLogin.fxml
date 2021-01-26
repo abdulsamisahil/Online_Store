@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.productController">
+<AnchorPane prefHeight="400.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Code.productController">
     <children>
-        <Text layoutX="38.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products" wrappingWidth="155.44726371765137">
+        <Text layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products" wrappingWidth="182.11391830444336">
             <font>
                 <Font size="36.0" />
             </font>
@@ -25,18 +25,19 @@
                 </LinearGradient>
             </fill>
         </Text>
-        <TableView layoutX="38.0" layoutY="91.0" prefHeight="250.0" prefWidth="402.0">
-            <columns>
-                <TableColumn prefWidth="43.33333969116211" text="Code" />
-                <TableColumn prefWidth="86.00000762939453" text="Name" />
-                <TableColumn prefWidth="65.33334350585938" text="Supplier" />
-                <TableColumn prefWidth="54.66667175292969" text="Price" />
-                <TableColumn prefWidth="64.6666259765625" text="Discount" />
-            </columns>
-        </TableView>
-        <Button fx:id="addProductButton" layoutX="446.0" layoutY="91.0" mnemonicParsing="false" onAction="#addProductScene" prefHeight="25.0" prefWidth="89.0" text="Add Product" />
-        <Button fx:id="logoutBtn" layoutX="446.0" layoutY="309.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="32.0" prefWidth="89.0" text="Log out" />
-      <Button fx:id="addSBtn" layoutX="446.0" layoutY="125.0" mnemonicParsing="false" onAction="#addSupplierButtonClicked" prefHeight="25.0" prefWidth="89.0" text="Add Supplier" />
-      <Button fx:id="deleteProductBtn" layoutX="446.0" layoutY="160.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="89.0" text="Delete" />
+        <Button fx:id="addProductButton" layoutX="550.0" layoutY="96.0" mnemonicParsing="false" onAction="#addProductScene" prefHeight="25.0" prefWidth="89.0" text="Add Product" />
+        <Button fx:id="logoutBtn" layoutX="550.0" layoutY="314.0" mnemonicParsing="false" onAction="#backToStartScene" prefHeight="32.0" prefWidth="89.0" text="Log out" />
+      <Button fx:id="addSBtn" layoutX="550.0" layoutY="130.0" mnemonicParsing="false" onAction="#addSupplierButtonClicked" prefHeight="25.0" prefWidth="89.0" text="Add Supplier" />
+      <Button fx:id="deleteProductBtn" layoutX="550.0" layoutY="165.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="25.0" prefWidth="89.0" text="Delete" />
+      <TableView fx:id="productsview" layoutX="11.0" layoutY="96.0" prefHeight="250.0" prefWidth="533.0">
+         <columns>
+            <TableColumn fx:id="colpid" prefWidth="71.33334732055664" text="PID" />
+            <TableColumn fx:id="colpname" prefWidth="132.00003814697266" text="Name" />
+            <TableColumn fx:id="colsname" prefWidth="131.99998474121094" text="SID" />
+            <TableColumn fx:id="colbase_price" prefWidth="67.333251953125" text="Price" />
+            <TableColumn fx:id="colquantity" minWidth="0.0" prefWidth="60.66668701171875" text="Quantity" />
+            <TableColumn fx:id="colquantitySold" prefWidth="70.00003051757812" text="Sold" />
+         </columns>
+      </TableView>
     </children>
 </AnchorPane>

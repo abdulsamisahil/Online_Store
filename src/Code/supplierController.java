@@ -21,7 +21,7 @@ public class supplierController
     @FXML
     Button btnAddSupplier, btnBack;
     public void addSupplier() throws SQLException, ClassNotFoundException, InterruptedException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         String query = "insert into Application_3_Onlinestore.dbo.Supplier (Name, Phone, Address) " +
                 "values (?, ?, ?)";
         if (connection != null){

@@ -28,10 +28,11 @@
       <TableView fx:id="productsview" layoutX="38.0" layoutY="91.0" prefHeight="250.0" prefWidth="518.0">
         <columns>
           <TableColumn fx:id="colpid" prefWidth="71.33334732055664" text="PID" />
-          <TableColumn fx:id="colpname" prefWidth="237.33332061767578" text="Name" />
-            <TableColumn fx:id="colsid" prefWidth="67.3333740234375" text="SID" />
-            <TableColumn fx:id="colprice" prefWidth="69.3333740234375" text="Price" />
-            <TableColumn fx:id="colstock" prefWidth="69.33328247070312" text="Stock" />
+          <TableColumn fx:id="colpname" prefWidth="116.00005340576172" text="Name" />
+            <TableColumn fx:id="colsname" prefWidth="107.99995422363281" text="SID" />
+            <TableColumn fx:id="colbase_price" prefWidth="61.33331298828125" text="Price" />
+            <TableColumn fx:id="colquantity" minWidth="0.0" prefWidth="62.0" text="Quantity" />
+            <TableColumn fx:id="colquantitySold" prefWidth="97.99996948242188" text="QuantitySold" />
         </columns>
       </TableView>
       <Button fx:id="backButton" layoutX="466.0" layoutY="55.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="32.0" prefWidth="89.0" text="Back" />

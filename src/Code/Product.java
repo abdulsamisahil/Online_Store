@@ -1,57 +1,69 @@
 package Code;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Product
 {
-    private int productId, supplierId, unitsInStock;
-    private String productName;
 
-    public int getProductId() {
-        return productId;
+    /*private int Product_Id, Quantity, QuantitySold;
+    private String Name, Supplier;
+    private double Base_Price;
+
+    public Product(int product_Id, int quantity, int quantitySold, String name, String supplier, double base_Price) {
+        Product_Id = product_Id;
+        Quantity = quantity;
+        QuantitySold = quantitySold;
+        Name = name;
+        Supplier = supplier;
+        Base_Price = base_Price;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public int getProduct_Id() {
+        return Product_Id;
     }
 
-    public int getSupplierId() {
-        return supplierId;
+    public void setProduct_Id(int product_Id) {
+        Product_Id = product_Id;
     }
 
-    public void setSupplierId(int supplierId) {
-        this.supplierId = supplierId;
+    public int getQuantity() {
+        return Quantity;
     }
 
-    public int getUnitsInStock() {
-        return unitsInStock;
+    public void setQuantity(int quantity) {
+        Quantity = quantity;
     }
 
-    public void setUnitsInStock(int unitsInStock) {
-        this.unitsInStock = unitsInStock;
+    public int getQuantitySold() {
+        return QuantitySold;
     }
 
-    public String getProductName() {
-        return productName;
+    public void setQuantitySold(int quantitySold) {
+        QuantitySold = quantitySold;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getName() {
+        return Name;
     }
 
-    public double getBasePrice() {
-        return basePrice;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
+    public String getSupplier() {
+        return Supplier;
     }
 
-    private double basePrice;
-
-    public Product(int productId, String productName, int supplierId, double basePrice, int unitsInStock) {
-        this.productId = productId;
-        this.supplierId = supplierId;
-        this.unitsInStock = unitsInStock;
-        this.productName = productName;
-        this.basePrice = basePrice;
+    public void setSupplier(String supplier) {
+        Supplier = supplier;
     }
+
+    public double getBase_Price() {
+        return Base_Price;
+    }
+
+    public void setBase_Price(double base_Price) {
+        Base_Price = base_Price;
+    }*/
 }

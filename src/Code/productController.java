@@ -50,7 +50,7 @@ public class productController
 
     //Adding product to the store
     public void addProduct () throws SQLException, ClassNotFoundException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         if (connection != null)
         {
             System.out.println("Connected!");
@@ -81,7 +81,7 @@ public class productController
     }
 
     public void deleteProduct() throws SQLException, ClassNotFoundException {
-        Connection connection = new sqlconnection().connection();
+        Connection connection = new sqlconnection().connect();
         String sql = "Delete From Application_3_Onlinestore.dbo.Products where name = ?";
 
         if (connection != null){
